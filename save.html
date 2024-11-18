@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A umbrella</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #87CEEB, #f0f8ff); /* Bầu trời */
+            height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .ground {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 120px;
+            background: #228B22; /* Cỏ */
+        }
+
+        .character {
+            position: absolute;
+            width: 120px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #lover {
+            left: 400px;
+        }
+
+        #runner {
+            left: 0;
+            animation: run 4s linear forwards;
+        }
+
+        @keyframes run {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 340px;
+            }
+        }
+
+        .umbrella {
+            position: absolute;
+            top: -80px;
+            left: 20px;
+            width: 150px;
+            height: 80px;
+            background: linear-gradient(to bottom, #ADD8E6, #87CEFA); /* Xanh dương nhạt */
+            border-radius: 50% 50% 0 0;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng nổi */
+        }
+
+        .umbrella-stick {
+            position: absolute;
+            top: 0;
+            left: 70px;
+            width: 5px;
+            height: 120px;
+            background: #2F4F4F; /* Màu nâu đậm */
+        }
+
+        .umbrella.show {
+            display: block;
+        }
+
+        .sun {
+            position: absolute;
+            top: 2%;
+            left: 15%;
+            width: 150px;
+            height: 150px;
+            background-color: yellow;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.8);
+        }
+
+        /* Chữ trên nền trời */
+        .sky-text {
+            position: absolute;
+            top: 20%;
+            width: 100%;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            animation: fadeIn 6s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mặt đất -->
+    <div class="ground"></div>
+
+    <div class="sun"></div>
+
+    <!-- Chữ trên nền trời -->
+    <div class="sky-text">
+        "Anh luôn cố gắng để làm người che ô xứng đáng với em, anh sẽ chở che, ân cần và dịu dàng với em hơn nữa, và hơn thế.
+        Anh sẽ thay tuyến lệ của vợ bằng những nụ cười thật hạnh phúc. Cảm ơn vợ vì một ngày 19/11 thật ý nghĩa và tuyệt vời 😙.
+        Anh yêu em, thiên thần của anh 😚☺️😇"
+    </div>
+
+    <!-- Người yêu (đứng yên) -->
+    <div class="character" id="lover">
+        <svg width="120" height="200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Đầu -->
+            <circle cx="60" cy="50" r="40" fill="#FFDAB9" />
+            <!-- Mắt -->
+            <circle cx="45" cy="40" r="5" fill="black" />
+            <circle cx="75" cy="40" r="5" fill="black" />
+            <!-- Miệng -->
+            <path d="M40,60 Q60,70 80,60" stroke="black" stroke-width="3" fill="none" />
+            <!-- Thân -->
+            <rect x="35" y="90" width="50" height="80" rx="20" fill="blue" />
+            <!-- Chân -->
+            <rect x="45" y="170" width="10" height="30" fill="black" />
+            <rect x="65" y="170" width="10" height="30" fill="black" />
+        </svg>
+    </div>
+
+    <!-- Người chạy đến -->
+    <div class="character" id="runner">
+        <svg width="120" height="200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Đầu -->
+            <circle cx="60" cy="50" r="40" fill="#FFDAB9" />
+            <!-- Mắt -->
+            <circle cx="45" cy="40" r="5" fill="black" />
+            <circle cx="75" cy="40" r="5" fill="black" />
+            <!-- Miệng -->
+            <path d="M40,60 Q60,75 80,60" stroke="red" stroke-width="3" fill="none" />
+            <!-- Thân -->
+            <rect x="35" y="90" width="50" height="80" rx="20" fill="green" />
+            <!-- Chân -->
+            <rect x="45" y="170" width="10" height="30" fill="black" />
+            <rect x="65" y="170" width="10" height="30" fill="black" />
+        </svg>
+        <!-- Ô -->
+        <div class="umbrella" id="umbrella">
+            <div class="umbrella-stick"></div>
+        </div>
+    </div>
+
+    <script>
+        const runner = document.getElementById('runner');
+        const umbrella = document.getElementById('umbrella');
+
+        // Hiển thị ô khi người chạy đến
+        setTimeout(() => {
+            umbrella.classList.add('show');
+        }, 4000); // Sau 4 giây
+    </script>
+</body>
+</html>
