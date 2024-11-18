@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift for bae 💖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bé hãy chọn lần lượt nha</h1>
+
+        <div class="button-container">
+            <button class="button" id="heartEffectBtn">Number 1</button>
+            <button class="button" id="umbrellaEffectBtn">Cũng là number 1</button>
+        </div>
+    </div>
+
+    <script>
+        const heartEffectBtn = document.getElementById('heartEffectBtn');
+        const umbrellaEffectBtn = document.getElementById('umbrellaEffectBtn');
+
+        // Khi nhấn vào "Hiệu Ứng Trái Tim", mở cửa sổ mới với file heart-effect.html
+        heartEffectBtn.addEventListener('click', () => {
+            window.open('heart.html', '_blank');
+        });
+
+        // Khi nhấn vào "Hiệu Ứng Che Ô", mở cửa sổ mới với file umbrella-effect.html
+        umbrellaEffectBtn.addEventListener('click', () => {
+            window.open('save.html', '_blank');
+        });
+    </script>
+</body>
+</html>
